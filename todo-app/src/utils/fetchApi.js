@@ -20,6 +20,23 @@ class fetchApi {
     async deleteTasks() {
         return await axios.delete("http://localhost:3000/tasks/delete-all");
     }
+
+    async deleteTaskById(id) {
+        return await axios({
+            method: "delete",
+            url: "http://localhost:3000/tasks/delete-task",
+            headers: {"Content-Type": "application/json"},
+            data: { id: id }
+        });
+    }
+
+    async updateTask(id, todo, state) {
+        return await axios.put("http://localhost:3000/tasks/update", {
+            id: id,
+            todo: todo,
+            state: state || false
+        })
+    }
 }
 
 module.exports = new fetchApi();

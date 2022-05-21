@@ -9,7 +9,7 @@ export default function ButtonCompleted() {
 
     return (
         <Box>
-            <Text fontWeight="bold" fontSize="24px" color="brand.800" cursor="pointer" onClick={(e) => {fetchApi()}}>Delete All</Text>
+            <Text fontWeight="bold" fontSize="24px" color="brand.800" cursor="pointer" onClick={(e) => {fetchApi(); window.location.reload()}}>Delete All</Text>
         </Box>
     )
 }
