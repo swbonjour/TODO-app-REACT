@@ -36,7 +36,8 @@ class tasksController {
         try {
             const id = req.body.id;
             const todo = req.body.todo;
-            const task = await Task.findOneAndUpdate({ _id: id }, { todo: todo });
+            const state = req.body.state;
+            const task = await Task.findOneAndUpdate({ _id: id }, { todo: todo, state: state });
             res.status(200).send();
         } catch (error) {
             console.log(error);
