@@ -21,6 +21,15 @@ class tasksController {
         }
     }
 
+    async getCompletedTasks(req, res) {
+        try {
+            const data = await Task.find({ state: true });
+            res.json(data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     async createTask(req, res) {
         try {
             const { todo } = req.body;

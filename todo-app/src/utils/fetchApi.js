@@ -11,6 +11,11 @@ class fetchApi {
         return data;
     }
 
+    async getCompletedTasks() {
+        const { data } = await axios.get("http://localhost:3000/tasks/get-completed-tasks");
+        return data;
+    }
+
     async createTask(todo) {
         return await axios.post("http://localhost:3000/tasks/create", {
             todo: todo

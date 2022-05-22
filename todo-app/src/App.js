@@ -1,6 +1,8 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
-import Layout from "./components/Layout.jsx";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home.jsx";
+import Completed from "./pages/Completed.jsx";
 
 const colors = {
   brand: {
@@ -14,9 +16,14 @@ const theme = extendTheme({ colors });
 
 function App() {
   return (
-    <ChakraProvider theme={theme}>
-      <Layout />
-    </ChakraProvider>
+      <ChakraProvider theme={theme}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />}/>
+            <Route path="/completed" element={<Completed />}/>
+          </Routes>
+        </BrowserRouter>
+      </ChakraProvider>
   );
 }
 
